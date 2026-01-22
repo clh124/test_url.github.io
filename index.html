@@ -16,14 +16,12 @@
       color: #2c3e50;
     }
 
-    /* [修改] 调整容器宽度逻辑 
-       确保在大屏幕上足够宽 (1400px)，不再挤在中间
-    */
-    @media screen and (min-width: 1600px) {
-      .container {
-        max-width: 1600px !important;
-        width: 1600px !important;
-      }
+    /* [修改] 强制流式布局占满屏幕，只留微小内边距防止贴边 */
+    .container.is-fluid {
+      max-width: 100% !important;
+      width: 100% !important;
+      padding-left: 24px;
+      padding-right: 24px;
     }
 
     /* Hero Section Styling */
@@ -106,9 +104,6 @@
       color: #4a4a4a;
     }
 
-    .content p {
-      text-align: justify;
-    }
   </style>
 
   <script>
@@ -124,11 +119,11 @@
 
   <section class="hero" style="background-color: #f9f9fc;">
     <div class="hero-body" style="padding-top: 2rem;">
-      <div class="container has-text-centered">
+      <div class="container is-fluid has-text-centered">
   
         <div class="columns is-centered">
           
-          <div class="column is-10 is-full-mobile">
+          <div class="column is-12">
             
             <figure class="image mb-6">
               <img src="icme26-bg-02-combined-01-1-scaled.webp" 
@@ -172,10 +167,10 @@
 
 
 <section class="section">
-  <div class="container">
+  <div class="container is-fluid">
     <div class="columns is-variable is-8 is-centered">
 
-      <div class="column is-10">
+      <div class="column is-12">
 
         <div class="box" id="overview">
           <h2 class="title is-3 section-header">Overview</h2>
@@ -256,7 +251,7 @@
               The ranking for Track 1 is determined by the <strong>Detection Score</strong> \(S_{Track1}\).
               This score emphasizes the model's ability to find and recognize defects in new domains while controlling false alarms.
             </p>
-            </p>
+            <p>
               $$ S_{Track1} = 0.3 \times S_{loc} + 0.3 \times S_{cls} + 0.4 \times S_{screen} $$
             </p>
 
@@ -271,7 +266,7 @@
               The ranking for Track 2 is determined by the <strong>Risk Assessment Score</strong> \(S_{Track2}\).
               While severity grading is the primary goal, accurate localization and classification are prerequisites for valid reasoning.
             </p>
-            </p>
+            <p>
               $$ S_{Track2} = 0.2 \times S_{loc} + 0.2 \times S_{cls} + 0.6 \times S_{grade} $$
             </p>
             <ul>
