@@ -16,6 +16,16 @@
       color: #2c3e50;
     }
 
+    /* [修改] 调整容器宽度逻辑 
+       确保在大屏幕上足够宽 (1400px)，不再挤在中间
+    */
+    @media screen and (min-width: 1408px) {
+      .container {
+        max-width: 1400px !important;
+        width: 1400px !important;
+      }
+    }
+
     /* Hero Section Styling */
     .hero {
       background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
@@ -110,7 +120,7 @@
 
 <section class="hero is-medium">
   <div class="hero-body">
-    <div class="container is-max-desktop has-text-centered">
+    <div class="container has-text-centered">
 
       <div class="columns is-centered mt-6">
         <div class="column is-10">
@@ -166,10 +176,10 @@
 
 
 <section class="section">
-  <div class="container is-max-desktop">
+  <div class="container">
     <div class="columns is-variable is-8">
 
-      <div class="column is-8">
+      <div class="column is-9">
 
         <div class="box" id="overview">
           <h2 class="title is-3 section-header">Overview</h2>
@@ -287,7 +297,7 @@
 
       </div>
 
-      <div class="column is-4">
+      <div class="column is-3">
         <div class="sidebar-sticky">
           
           <div class="box has-background-white">
