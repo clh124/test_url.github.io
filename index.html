@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <style>
+    .ida-hero {
+      position: relative;
+      background-image: url("./static/images/icme26-bg-02-combined-01-1-scaled.webp");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  
+    .ida-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45); /* 遮罩透明度，可调 */
+      z-index: 0;
+    }
+  
+    .ida-hero .hero-body {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ICME26 Grand Challenge: IDA</title>
@@ -119,49 +143,32 @@
 <body>
 
   <section class="hero is-medium ida-hero">
-    <div class="hero-overlay"></div>
-  
-    <div class="hero-body">
-      <div class="container has-text-centered">
-  
-        <h1 class="title is-2 mb-4 has-text-white">
-          ICME26 Grand Challenge IDA<sup>*</sup>: Cross-Scenario Defect Detection and Fine-Grained Severity Grading for High-Precision Manufacturing
-        </h1>
-        
-        <p class="subtitle is-4 mb-6">
-          <span class="is-size-6 has-text-white" style="opacity: 0.85">
-            <sup>*</sup>IDA: Industrial Defect Analysis
-          </span>
-        </p>
-  
-        <div class="tags is-centered are-medium mb-5">
-          <span class="tag is-dark">Wei Sun</span>
-          <span class="tag is-dark">Weixia Zhang</span>
-          <span class="tag is-dark">Linhan Cao</span>
-          <span class="tag is-dark">Xiongkuo Min</span>
-          <span class="tag is-dark">Xiaoping Zhang</span>
-          <span class="tag is-dark">Patrick Le Callet</span>
-          <span class="tag is-dark">Guangtao Zhai</span>
-        </div>
-  
-        <div class="buttons is-centered">
-          <a class="button is-white is-rounded has-text-dark" href="#dataset">
-            <span>Dataset</span>
-          </a>
-          <a class="button is-white is-rounded has-text-dark" href="#evaluation">
-            <span>Evaluation</span>
-          </a>
-          <a class="button is-primary is-rounded" href="#submission">
-            <span>Submission</span>
-          </a>
-          <a class="button is-warning is-rounded has-text-dark" href="#leaderboard">
-            <span>Leaderboard</span>
-          </a>
-        </div>
-  
+  <div class="hero-body">
+    <div class="container has-text-centered">
+
+      <h1 class="title is-2 mb-4 has-text-white">
+        ICME26 Grand Challenge IDA<sup>*</sup>: Cross-Scenario Defect Detection and Fine-Grained Severity Grading for High-Precision Manufacturing
+      </h1>
+
+      <p class="subtitle is-4 mb-6 has-text-white">
+        <span class="is-size-6" style="opacity: 0.85">
+          <sup>*</sup>IDA: Industrial Defect Analysis
+        </span>
+      </p>
+
+      <div class="tags is-centered are-medium mb-5">
+        <span class="tag is-dark">Wei Sun</span>
+        <span class="tag is-dark">Weixia Zhang</span>
+        <span class="tag is-dark">Linhan Cao</span>
+        <span class="tag is-dark">Xiongkuo Min</span>
+        <span class="tag is-dark">Xiaoping Zhang</span>
+        <span class="tag is-dark">Patrick Le Callet</span>
+        <span class="tag is-dark">Guangtao Zhai</span>
       </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
 
 <section class="section">
