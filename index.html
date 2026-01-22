@@ -1,38 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <style>
-    .ida-hero {
-      position: relative;
-      background-image: url("./static/images/icme26-bg-02-combined-01-1-scaled.webp");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-  
-    .ida-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.45); /* 遮罩透明度，可调 */
-      z-index: 0;
-    }
-  
-    .ida-hero .hero-body {
-      position: relative;
-      z-index: 1;
-    }
-  </style>
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ICME26 Grand Challenge: IDA</title>
 
+  <!-- Bulma & Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
+  <!-- ===================== -->
+  <!-- Inline Style (ONLY HTML MODIFICATION) -->
+  <!-- ===================== -->
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -40,97 +20,101 @@
       color: #2c3e50;
     }
 
-    /* [修改] 调整容器宽度逻辑 
-       确保在大屏幕上足够宽 (1400px)，不再挤在中间
-    */
+    /* ===== Hero Background Image ===== */
+    .ida-hero {
+      position: relative;
+      background-image: url("./static/images/icme26-bg-02-combined-01-1-scaled.webp");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #ffffff;
+    }
+
+    /* Dark overlay for readability */
+    .ida-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45); /* 可调：0.35–0.55 */
+      z-index: 0;
+    }
+
+    /* Hero content above overlay */
+    .ida-hero .hero-body {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== Container Width on Large Screens ===== */
     @media screen and (min-width: 1600px) {
-      .container {
+      .section > .container {
         max-width: 1600px !important;
-        width: 1600px !important;
       }
     }
 
-    /* Hero Section Styling */
-    .hero {
-      background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-      color: #fff;
-    }
+    /* ===== Section Styling ===== */
     .hero .title {
-      color: #fff !important;
+      color: #ffffff !important;
       font-weight: 800;
       letter-spacing: -0.5px;
     }
+
     .hero .subtitle {
-      color: #e0e0e0 !important;
-    }
-    .hero a.button {
-      border-width: 0;
-      transition: transform 0.2s;
-    }
-    .hero a.button:hover {
-      transform: translateY(-2px);
+      color: #e6e6e6 !important;
     }
 
-    /* Content Styling */
     .box {
       border-radius: 8px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.05);
       border: 1px solid #eee;
     }
+
     .section-header {
       border-left: 5px solid #203a43;
       padding-left: 15px;
-      margin-bottom: 25px !important;
+      margin-bottom: 25px;
       color: #203a43;
     }
 
-    /* Track Cards */
     .track-card {
       height: 100%;
       border-top: 4px solid #3273dc;
       transition: all 0.3s ease;
     }
+
     .track-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
+
     .track-icon {
       color: #3273dc;
       margin-bottom: 1rem;
     }
 
-    /* Awards Section */
     .awards-box {
       background-color: #fffbf0;
       border: 1px solid #ffeeba;
       border-left: 5px solid #ffdd57;
     }
+
     .price-tag {
       font-size: 1.25rem;
       font-weight: bold;
       color: #b8860b;
     }
 
-    /* Sticky Sidebar */
     .sidebar-sticky {
-      position: -webkit-sticky;
       position: sticky;
       top: 2rem;
     }
 
-    /* MathJax Fix */
     mjx-container {
       overflow-x: auto;
-      overflow-y: hidden;
-    }
-    
-    /* Table Styling */
-    .table th {
-      background-color: #f5f7fa;
-      color: #4a4a4a;
     }
   </style>
 
+  <!-- MathJax -->
   <script>
     window.MathJax = {
       tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
@@ -142,15 +126,18 @@
 
 <body>
 
-  <section class="hero is-medium ida-hero">
+<!-- ===================== -->
+<!-- HERO SECTION -->
+<!-- ===================== -->
+<section class="hero is-medium ida-hero">
   <div class="hero-body">
     <div class="container has-text-centered">
 
-      <h1 class="title is-2 mb-4 has-text-white">
+      <h1 class="title is-2 mb-4">
         ICME26 Grand Challenge IDA<sup>*</sup>: Cross-Scenario Defect Detection and Fine-Grained Severity Grading for High-Precision Manufacturing
       </h1>
 
-      <p class="subtitle is-4 mb-6 has-text-white">
+      <p class="subtitle is-4 mb-6">
         <span class="is-size-6" style="opacity: 0.85">
           <sup>*</sup>IDA: Industrial Defect Analysis
         </span>
@@ -170,7 +157,9 @@
   </div>
 </section>
 
-
+<!-- ===================== -->
+<!-- MAIN CONTENT -->
+<!-- ===================== -->
 <section class="section">
   <div class="container">
     <div class="columns is-variable is-8">
@@ -181,113 +170,15 @@
           <h2 class="title is-3 section-header">Overview</h2>
           <div class="content">
             <p>
-              The quality control of <strong>Printed Circuit Board Assemblies (PCBA)</strong> is a cornerstone of modern manufacturing. 
-              However, current Industrial AI faces a bottleneck: the lack of <strong>Cross-Scenario Generalization</strong> and <strong>Fine-Grained Severity Grading</strong>.
+              The quality control of <strong>Printed Circuit Board Assemblies (PCBA)</strong> is a cornerstone of modern manufacturing.
+              However, current Industrial AI faces a bottleneck: the lack of
+              <strong>Cross-Scenario Generalization</strong> and
+              <strong>Fine-Grained Severity Grading</strong>.
             </p>
             <p>
-              <strong>IDA 2026</strong> invites researchers to solve two critical problems: adapting models to unseen production lines (Track 1) and intelligently assessing defect risk levels (Track 2).
+              <strong>IDA 2026</strong> invites researchers to solve two critical problems:
+              adapting models to unseen production lines (Track 1) and intelligently assessing defect risk levels (Track 2).
             </p>
-          </div>
-          
-          <div class="columns is-multiline mt-4">
-            <div class="column is-6">
-              <div class="box track-card has-background-white-ter">
-                <div class="has-text-centered track-icon">
-                  <i class="fas fa-search-location fa-3x"></i>
-                </div>
-                <h4 class="title is-5 has-text-centered">Track 1: Detection</h4>
-                <p class="is-size-7">
-                  Focuses on <strong>Adaptability</strong>. Detect and localize defects in <strong>unseen</strong> production lines (Zero-Shot/Few-Shot).
-                </p>
-              </div>
-            </div>
-            <div class="column is-6">
-              <div class="box track-card has-background-white-ter" style="border-top-color: #ff3860;">
-                <div class="has-text-centered track-icon" style="color: #ff3860;">
-                  <i class="fas fa-tachometer-alt fa-3x"></i>
-                </div>
-                <h4 class="title is-5 has-text-centered">Track 2: Grading</h4>
-                <p class="is-size-7">
-                  Focuses on <strong>Depth</strong>. Analyze defect mechanism and assign severity: <em>Acceptable, Marginal NG, NG, or Gross NG</em>.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="box awards-box" id="awards">
-          <h2 class="title is-3 section-header"><i class="fas fa-award mr-2"></i>Awards</h2>
-          <div class="content">
-            <p>A total prize pool of <strong>$9,600 USD</strong> will be awarded across two tracks.</p>
-            <div class="columns is-mobile has-text-centered mt-4">
-              <div class="column">
-                <span class="icon is-large has-text-warning"><i class="fas fa-trophy fa-2x"></i></span>
-                <p class="heading mt-2">Champion</p>
-                <p class="price-tag">$3,000</p>
-              </div>
-              <div class="column">
-                <span class="icon is-large has-text-grey-light"><i class="fas fa-medal fa-2x"></i></span>
-                <p class="heading mt-2">Runner-up</p>
-                <p class="price-tag">$1,000</p>
-              </div>
-              <div class="column">
-                <span class="icon is-large has-text-brown"><i class="fas fa-medal fa-2x"></i></span>
-                <p class="heading mt-2">Third Place</p>
-                <p class="price-tag">$800</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="box" id="evaluation-criteria">
-          <h2 class="title is-3 section-header">Evaluation Criteria</h2>
-          <div class="content">
-            
-            <h4 class="title is-5">Track 1: Detection Score</h4>
-            <p>Emphasizes minimizing false alarms in unseen domains.</p>
-            <div class="notification is-info is-light">
-              $$ S_{Track1} = 0.3 \times S_{loc} + 0.3 \times S_{cls} + 0.4 \times S_{screen} $$
-            </div>
-
-            <h4 class="title is-5 mt-5">Track 2: Risk Assessment Score</h4>
-            <p>Emphasizes the accuracy of severity grading (Quadratic Weighted Kappa).</p>
-            <div class="notification is-danger is-light">
-              $$ S_{Track2} = 0.2 \times S_{loc} + 0.2 \times S_{cls} + 0.6 \times S_{grade} $$
-            </div>
-          </div>
-        </div>
-
-        <div class="box" id="timeline">
-          <h2 class="title is-3 section-header">Timeline</h2>
-          <table class="table is-fullwidth is-striped">
-            <thead>
-              <tr>
-                <th width="30%">Date (2026)</th>
-                <th>Milestone</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Mar 01</strong></td><td>Registration Opens & Training Data Release</td></tr>
-              <tr><td><strong>Apr 01</strong></td><td>Test Set Release (Track 1 & 2)</td></tr>
-              <tr><td><strong>Apr 06</strong></td><td>Challenge Closes (Code Submission)</td></tr>
-              <tr><td><strong>Apr 20</strong></td><td>Paper Submission</td></tr>
-              <tr><td><strong>Jul 05</strong></td><td><span class="tag is-warning">Winner Announcement</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="box" id="organizers">
-          <h2 class="title is-3 section-header">Organizers</h2>
-          <div class="content is-small">
-            <ul>
-              <li><strong>Wei Sun</strong> (Lead), ECNU - <a href="mailto:wsun@cee.ecnu.edu.cn">wsun@cee.ecnu.edu.cn</a></li>
-              <li><strong>Weixia Zhang</strong>, SJTU</li>
-              <li><strong>Linhan Cao</strong>, SJTU</li>
-              <li><strong>Xiongkuo Min</strong>, SJTU</li>
-              <li><strong>Xiaoping Zhang</strong>, IEEE Fellow</li>
-              <li><strong>Patrick Le Callet</strong>, Univ. Nantes</li>
-              <li><strong>Guangtao Zhai</strong>, SJTU</li>
-            </ul>
           </div>
         </div>
 
@@ -295,41 +186,14 @@
 
       <div class="column is-3">
         <div class="sidebar-sticky">
-          
-          <div class="box has-background-white">
-            <h3 class="title is-5 mb-3">Quick Navigation</h3>
+          <div class="box">
+            <h3 class="title is-5">Quick Navigation</h3>
             <aside class="menu">
               <ul class="menu-list">
                 <li><a href="#overview" class="is-active">Overview</a></li>
-                <li><a href="#awards">Awards</a></li>
-                <li><a href="#evaluation-criteria">Evaluation</a></li>
-                <li><a href="#timeline">Timeline</a></li>
-                <li><a href="#organizers">Organizers</a></li>
               </ul>
             </aside>
           </div>
-
-          <div class="box has-background-primary-light" id="dataset">
-            <h3 class="title is-5 has-text-primary-dark"><i class="fas fa-database mr-2"></i>Dataset</h3>
-            <div class="content is-small">
-              <p>Links will be available on <strong>March 1st, 2026</strong>.</p>
-              <button class="button is-primary is-small is-fullwidth" disabled>Download (Coming Soon)</button>
-            </div>
-          </div>
-
-          <div class="box" id="leaderboard">
-            <h3 class="title is-5"><i class="fas fa-chart-line mr-2"></i>Leaderboard</h3>
-            <div class="content is-small">
-              <p>Test phase starts April 1st.</p>
-              <table class="table is-narrow is-fullwidth is-size-7">
-                <thead><tr><th>Rk</th><th>Team</th><th>Scr</th></tr></thead>
-                <tbody>
-                  <tr><td>-</td><td>(Waiting)</td><td>-</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
         </div>
       </div>
 
