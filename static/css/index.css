@@ -155,3 +155,25 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
+
+.ida-hero {
+  position: relative;
+  background-image: url("../images/icme26-bg-02-combined-01-1-scaled.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 半透明遮罩，保证文字可读 */
+.ida-hero .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* 可调：0.35–0.55 */
+  z-index: 0;
+}
+
+/* 内容在遮罩之上 */
+.ida-hero .hero-body {
+  position: relative;
+  z-index: 1;
+}
