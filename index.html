@@ -105,6 +105,10 @@
       background-color: #f5f7fa;
       color: #4a4a4a;
     }
+
+    .content p {
+      text-align: justify;
+    }
   </style>
 
   <script>
@@ -142,15 +146,6 @@
               </span>
             </p>
   
-            <div class="tags is-centered are-medium mb-5">
-              <span class="tag is-black">Wei Sun</span>
-              <span class="tag is-black">Weixia Zhang</span>
-              <span class="tag is-black">Linhan Cao</span>
-              <span class="tag is-black">Xiongkuo Min</span>
-              <span class="tag is-black">Xiaoping Zhang</span>
-              <span class="tag is-black">Patrick Le Callet</span>
-              <span class="tag is-black">Guangtao Zhai</span>
-            </div>
   
             <div class="buttons is-centered">
               <a class="button is-white is-rounded has-text-dark" href="#dataset">
@@ -178,9 +173,9 @@
 
 <section class="section">
   <div class="container">
-    <div class="columns is-variable is-8">
+    <div class="columns is-variable is-8 is-centered">
 
-      <div class="column is-9">
+      <div class="column is-10">
 
         <div class="box" id="overview">
           <h2 class="title is-3 section-header">Overview</h2>
@@ -261,9 +256,9 @@
               The ranking for Track 1 is determined by the <strong>Detection Score</strong> \(S_{Track1}\).
               This score emphasizes the model's ability to find and recognize defects in new domains while controlling false alarms.
             </p>
-            <div class="notification is-info is-light">
+            </p>
               $$ S_{Track1} = 0.3 \times S_{loc} + 0.3 \times S_{cls} + 0.4 \times S_{screen} $$
-            </div>
+            </p>
 
             <ul>
               <li><strong>Localization</strong> (\(S_{loc}\)): Mean Intersection over Union (mIoU).</li>
@@ -276,13 +271,26 @@
               The ranking for Track 2 is determined by the <strong>Risk Assessment Score</strong> \(S_{Track2}\).
               While severity grading is the primary goal, accurate localization and classification are prerequisites for valid reasoning.
             </p>
-            <div class="notification is-danger is-light">
+            </p>
               $$ S_{Track2} = 0.2 \times S_{loc} + 0.2 \times S_{cls} + 0.6 \times S_{grade} $$
-            </div>
+            </p>
             <ul>
               <li><strong>Severity Grading</strong> (\(S_{grade}\)): <strong>Quadratic Weighted Kappa (QWK)</strong>.</li>
               <li><strong>Localization</strong> (\(S_{loc}\)) &amp; <strong>Classification</strong> (\(S_{cls}\)): ensures the severity grade is assigned to the correct defect instance and type.</li>
             </ul>
+          </div>
+        </div>
+
+
+        <div class="box" id="dataset">
+          <h2 class="title is-3 section-header">Dataset</h2>
+          <div class="content">
+
+            <p class="is-size-6 has-text-grey">
+              Dataset details will be released soon.
+            </p>
+            
+            
           </div>
         </div>
 
@@ -303,22 +311,11 @@
 
         <div class="box" id="timeline">
           <h2 class="title is-3 section-header">Timeline</h2>
-          <table class="table is-fullwidth is-striped">
-            <thead>
-              <tr>
-                <th width="30%">Date</th>
-                <th>Milestone</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>2026.03.01</strong></td><td>Challenge registration opens and release of the training dataset.</td></tr>
-              <tr><td><strong>2026.04.01</strong></td><td>Test Set Release (Track 1 & 2)</td></tr>
-              <tr><td><strong>2026.04.06</strong></td><td>Challenge closes (Final code submission).</td></tr>
-              <tr><td><strong>2026.04.20</strong></td><td>Grand challenge paper submission deadline.</td></tr>
-              <tr><td><strong>2026.04.25</strong></td><td>Paper acceptance notification.</td></tr>
-              <tr><td><strong>2026.07.05</strong></td><td><span class="tag is-warning">Winner Announcement & Award.</span></td></tr>
-            </tbody>
-          </table>
+          <div class="content">
+            <p class="is-size-6 has-text-grey">
+              The detailed timeline will be announced soon.
+            </p>
+          </div>
         </div>
 
         <div class="box awards-box" id="awards">
@@ -349,7 +346,7 @@
           <h2 class="title is-3 section-header">Organizers</h2>
           <div class="content">
             <ul>
-              <li><strong>Wei Sun</strong>(Lead Organizer), wsun@cee.ecnu.edu.cn</li>
+              <li><strong>Wei Sun</strong>, wsun@cee.ecnu.edu.cn</li>
               <li><strong>Weixia Zhang</strong>, zwx8981@sjtu.edu.cn</li>
               <li><strong>Linhan Cao</strong>, caolinhan@sjtu.edu.cn</li>
               <li><strong>Xiongkuo Min</strong>, minxiongkuo@sjtu.edu.cn</li>
@@ -360,65 +357,6 @@
           </div>
         </div>
 
-      </div>
-
-      <div class="column is-3">
-        <div class="sidebar-sticky">
-          
-          <div class="box has-background-white">
-            <h3 class="title is-5 mb-3">Quick Navigation</h3>
-            <aside class="menu is-size-7">
-              <ul class="menu-list" id="quick-nav">
-                <li><a href="#overview">Overview</a></li>
-                <li><a href="#evaluation-criteria">Evaluation</a></li>
-                <li><a href="#submission-format">Submission</a></li>
-                <li><a href="#timeline">Timeline</a></li>
-                <li><a href="#awards">Awards</a></li>
-                <li><a href="#organizers">Organizers</a></li>
-              </ul>
-            </aside>
-          </div>
-
-          <div class="box" id="dataset">
-            <h3 class="title is-5 mb-3"><i class="fas fa-database mr-2"></i>Dataset</h3>
-            <div class="content is-small">
-              <ul>
-                <li><strong>Development Set (Shared):</strong> images from multiple source domains with full annotations (Bounding Boxes + Defect Types + Severity Labels).</li>
-                <li><strong>Track 1 Test Set (Unseen Domains):</strong> images from <strong>new</strong> production lines or components not seen (Zero-Shot/Few-Shot) in the training set.</li>
-                <li><strong>Track 2 Test Set (Complex Cases):</strong> images containing challenging defects with subtle visual differences between severity levels.</li>
-              </ul>
-              <button class="button is-primary is-small is-fullwidth" disabled>Download (Coming Soon)</button>
-            </div>
-          </div>
-
-          <div class="box" id="leaderboard">
-            <h3 class="title is-5"><i class="fas fa-chart-line mr-2"></i>Leaderboard</h3>
-            <div class="content is-small">
-              <p>Track 1</p>
-              <table class="table is-narrow is-fullwidth is-size-7">
-                <thead><tr><th>Rk</th><th>Team</th><th>Scr</th></tr></thead>
-                <tbody>
-                  <tr><td>-</td><td>-</td><td>-</td></tr>
-                </tbody>
-              </table>
-              <p>Track 2</p>
-              <table class="table is-narrow is-fullwidth is-size-7">
-                <thead><tr><th>Rk</th><th>Team</th><th>Scr</th></tr></thead>
-                <tbody>
-                  <tr><td>-</td><td>-</td><td>-</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="box" id="Contact">
-            <h3 class="title is-5"><i class="fas fa-envelope mr-2"></i>Contact</h3>
-            <div class="content is-small">
-              <p>Email: wsun@cee.ecnu.edu.cn</p>
-            </div>
-          </div>
-
-        </div>
       </div>
 
     </div>
